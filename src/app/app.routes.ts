@@ -14,6 +14,7 @@ export const routes: Routes = [
     component: MainLayout,
     canActivate: [loggedInGuard],
     children: [
+      { path: '', redirectTo: 'homepage', pathMatch: 'full' },
       { path: 'homepage', component: Homepage },
       { path: 'my-tasks', component: MyTasks },
       { path: 'admin', component: Admin, canActivate: [adminGuard] },
