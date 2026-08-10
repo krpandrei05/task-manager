@@ -1,4 +1,4 @@
-import { HttpErrorResponse, HttpInterceptor, HttpInterceptorFn } from '@angular/common/http';
+import { HttpErrorResponse,  HttpInterceptorFn } from '@angular/common/http';
 import LocalStorageUtils from '../utils/local-storage-utils';
 import { catchError, throwError } from 'rxjs';
 import { inject } from '@angular/core';
