@@ -7,6 +7,7 @@ import { Admin } from './admin/admin';
 import { loggedInGuard } from './guards/logged-in-guard';
 import { guestGuard } from './guards/guest-guard';
 import { adminGuard } from './guards/admin-guard';
+import { About } from './about/about';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'homepage', pathMatch: 'full' },
       { path: 'homepage', component: Homepage },
+      { path: 'about', component: About},
       { path: 'my-tasks', component: MyTasks },
       { path: 'admin', component: Admin, canActivate: [adminGuard] },
     ],
