@@ -52,6 +52,10 @@ export class NewTask implements OnInit {
     const payload: Task = {
       ...this.formModel,
       userId: Number(this.formModel.userId),
+      // <=> taskName: this.formModel.taskName,
+      //   statusTypeId: this.formModel.statusTypeId,
+      //   dueDate: this.formModel.dueDate,
+      //   userId: Number(this.formModel.userId),
     };
 
     if (this.isEditMode && this.task?.taskId) {
