@@ -1,0 +1,126 @@
+:host {
+  --ink: #2b171d;
+  --paper: #f4eeec;
+  --brand: #cf3034;
+  --muted: #a08c91;
+  --rule: rgba(244, 238, 236, 0.14);
+}
+
+.about {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3.5rem 2rem 3rem;
+  min-height: calc(100vh - 60px);
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+.about-intro {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+}
+
+.about-logo {
+  width: 44px;
+  height: 44px;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.about-title {
+  font-size: clamp(2.75rem, 9vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0 0 1rem;
+  line-height: 1;
+}
+
+.about-title::after {
+  content: "";
+  display: inline-block;
+  width: 0.5em;
+  height: 0.09em;
+  background: var(--brand);
+  vertical-align: 0.18em;
+  margin-left: 0.35em;
+}
+
+.about-lede {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+  max-width: 34rem;
+}
+
+.about-log {
+  max-width: 46rem;
+  margin: 0 auto;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.25rem;
+  font-size: 0.8125rem;
+}
+
+.about-log-prompt {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.about-caret {
+  color: var(--brand);
+  margin-right: 0.5rem;
+}
+
+.about-log-line {
+  display: grid;
+  grid-template-columns: 5.5rem 8.5rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  opacity: 0;
+  animation: about-line-in 0.45s ease-out forwards;
+}
+
+@keyframes about-line-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.about-hash { color: var(--brand); }
+
+.about-tag {
+  color: var(--paper);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.about-message {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.about-signoff {
+  max-width: 46rem;
+  margin: 2.5rem auto 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .about { padding: 2.5rem 1.25rem; }
+  .about-log-line {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+    padding: 0.6rem 0;
+  }
+  .about-hash { font-size: 0.75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-log-line {
+    opacity: 1;
+    animation: none;
+  }
+}

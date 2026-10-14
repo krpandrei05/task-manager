@@ -1,0 +1,52 @@
+<div class="page-container">
+  <h3 class="mb-4">User Management</h3>
+
+  <div class="mb-4 d-flex gap-2">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" ngbDropdownToggle>Export</button>
+      <div ngbDropdownMenu>
+        <button ngbDropdownItem (click)="exportTasks('CSV')">as CSV</button>
+        <button ngbDropdownItem (click)="exportTasks('EXCEL')">as Excel</button>
+      </div>
+    </div>
+
+    <button class="btn btn-outline-secondary" (click)="triggerImport()">Import</button>
+    <input
+      #fileInput
+      type="file"
+      accept=".csv,.xlsx"
+      hidden
+      (change)="onFileSelected($event)">
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+      @for (user of users(); track user.userId) {
+        <tr>
+          <td>{{ user.userId }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <select
+              class="form-control"
+              [ngModel]="user.roleName"
+              [disabled]="isCurrentUser(user)"
+              (ngModelChange)="changeRole(user, $event)">
+              @for (role of roles; track role) {
+                <option [value]="role">{{ role }}</option>
+              }
+            </select>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

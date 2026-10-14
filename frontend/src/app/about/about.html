@@ -1,0 +1,25 @@
+<section class="about">
+  <header class="about-intro">
+    <img src="/eos_logo.png" alt="EOS IT Summer School" class="about-logo" />
+    <h1 class="about-title">Tasks</h1>
+    <p class="about-lede">
+      A task management application, built one week at a time during the EOS IT
+      Summer School. Spring Boot and Oracle on the back, Angular on the front,
+      JWT and role based access control in between.
+    </p>
+  </header>
+
+  <div class="about-log" role="list" aria-label="Project milestones">
+    <div class="about-log-prompt"><span class="about-caret">$</span> git log --oneline --reverse</div>
+
+    @for (milestone of milestones; track milestone.hash; let i = $index) {
+      <div class="about-log-line" role="listitem" [style.animation-delay.ms]="200 + i * 90">
+        <span class="about-hash">{{ milestone.hash }}</span>
+        <span class="about-tag">{{ milestone.tag }}</span>
+        <span class="about-message">{{ milestone.message }}</span>
+      </div>
+    }
+  </div>
+
+  <p class="about-signoff">Built by Andrei Carp &middot; Summer School 2026</p>
+</section>
